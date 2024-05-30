@@ -1,0 +1,798 @@
+{
+    "identification": {
+        "version": "2.0.0"
+    }, 
+    "processes": [
+        {
+            "definition": {
+                "base": {
+                    "identification": {
+                        "id": "Model", 
+                        "version": "2.0.0"
+                    }
+                }, 
+                "network": {
+                    "connections": [
+                        {
+                            "incoming": {
+                                "id": "f4163404-bb53-4e4a-a73d-f88894c8c4cc", 
+                                "parameter": "Credentials"
+                            }, 
+                            "outgoing": {
+                                "id": "5c5b647f-8165-47a3-a16b-5d7afd47fb58"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "f4163404-bb53-4e4a-a73d-f88894c8c4cc", 
+                                "parameter": "ProductId"
+                            }, 
+                            "outgoing": {
+                                "id": "5b78c0b6-e27e-430b-a7e5-e45759fb5e38"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "f4163404-bb53-4e4a-a73d-f88894c8c4cc", 
+                                "parameter": "ProjectId"
+                            }, 
+                            "outgoing": {
+                                "id": "14637373-4195-40f0-9dbe-5d6efedef58c"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "54a354fe-2891-47f4-91f0-0365cabf1fef", 
+                                "parameter": "Condition"
+                            }, 
+                            "outgoing": {
+                                "id": "1df5a856-35b3-45d7-a376-77895e08bf46", 
+                                "parameter": "error"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a", 
+                                "parameter": "exported_file"
+                            }, 
+                            "outgoing": {
+                                "id": "1df5a856-35b3-45d7-a376-77895e08bf46", 
+                                "parameter": "exported_file"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "1fb9da37-6c6f-4882-84d3-e17baa732871", 
+                                "parameter": "Message"
+                            }, 
+                            "outgoing": {
+                                "id": "1df5a856-35b3-45d7-a376-77895e08bf46", 
+                                "parameter": "error_message"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "607011ed-2b7b-4e43-b77e-06aa5fd93f44", 
+                                "parameter": "Message"
+                            }, 
+                            "outgoing": {
+                                "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a", 
+                                "parameter": "message"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "1df5a856-35b3-45d7-a376-77895e08bf46", 
+                                "parameter": "hpd_uri"
+                            }, 
+                            "outgoing": {
+                                "id": "f4163404-bb53-4e4a-a73d-f88894c8c4cc", 
+                                "parameter": "Outputs"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "1fb9da37-6c6f-4882-84d3-e17baa732871", 
+                                "parameter": "Precondition"
+                            }, 
+                            "outgoing": {
+                                "id": "54a354fe-2891-47f4-91f0-0365cabf1fef", 
+                                "parameter": "True"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a", 
+                                "parameter": "Precondition"
+                            }, 
+                            "outgoing": {
+                                "id": "54a354fe-2891-47f4-91f0-0365cabf1fef", 
+                                "parameter": "False"
+                            }
+                        }
+                    ], 
+                    "processes": [
+                        {
+                            "definition": {
+                                "base": {
+                                    "identification": {
+                                        "id": "CreateHPDURI", 
+                                        "title": "Create HPD URI", 
+                                        "version": "2.0.0"
+                                    }
+                                }
+                            }, 
+                            "identification": {
+                                "id": "f4163404-bb53-4e4a-a73d-f88894c8c4cc", 
+                                "version": "2.0.0"
+                            }, 
+                            "parameters": {
+                                "FeatureFilter": ""
+                            }
+                        }, 
+                        {
+                            "definition": {
+                                "base": {
+                                    "identification": {
+                                        "id": "PythonProcess", 
+                                        "title": "Python Process", 
+                                        "version": "2.0.0"
+                                    }
+                                }, 
+                                "parameters": {
+                                    "inputs": ["hpd_uri"], 
+                                    "outputs": ["error", "error_message", "exported_file"], 
+                                    "schema": {
+                                        "properties": {
+                                            "error": {
+                                                "title": "Error", 
+                                                "type": "boolean"
+                                            }, 
+                                            "error_message": {
+                                                "title": "Error Message", 
+                                                "type": "string"
+                                            }, 
+                                            "exported_file": {
+                                                "title": "Exported File", 
+                                                "type": "string"
+                                            }, 
+                                            "hpd_uri": {
+                                                "title": "HPD URI", 
+                                                "type": "uri"
+                                            }
+                                        }, 
+                                        "required": ["hpd_uri"], 
+                                        "type": "object"
+                                    }
+                                }, 
+                                "presentations": [
+                                    {
+                                        "identification": {
+                                            "id": "Model", 
+                                            "version": "2.0.0"
+                                        }, 
+                                        "properties": {
+                                            "Category": "ENC Tools", 
+                                            "Helper": true
+                                        }
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "Process", 
+                                            "version": "2.0.0"
+                                        }, 
+                                        "widgets": [
+                                            {
+                                                "identification": {
+                                                    "id": "export_path"
+                                                }, 
+                                                "properties": {
+                                                    "optional": true, 
+                                                    "path": "export_path"
+                                                }, 
+                                                "type": "Text"
+                                            }, 
+                                            {
+                                                "identification": {
+                                                    "id": "error_message"
+                                                }, 
+                                                "properties": {
+                                                    "optional": true, 
+                                                    "path": "error_message"
+                                                }, 
+                                                "type": "Text"
+                                            }, 
+                                            {
+                                                "identification": {
+                                                    "id": "exported_file"
+                                                }, 
+                                                "properties": {
+                                                    "optional": true, 
+                                                    "path": "exported_file"
+                                                }, 
+                                                "type": "Text"
+                                            }, 
+                                            {
+                                                "identification": {
+                                                    "id": "error"
+                                                }, 
+                                                "properties": {
+                                                    "optional": true, 
+                                                    "path": "error"
+                                                }, 
+                                                "type": "Check"
+                                            }, 
+                                            {
+                                                "identification": {
+                                                    "id": "hpd_uri"
+                                                }, 
+                                                "properties": {
+                                                    "optional": false, 
+                                                    "path": "hpd_uri"
+                                                }, 
+                                                "type": "Uri"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, 
+                            "identification": {
+                                "description": "Runs carisbatch in the background to do a pseudo export", 
+                                "id": "1df5a856-35b3-45d7-a376-77895e08bf46", 
+                                "title": "Silent S-57 ENC pseudo export"
+                            }, 
+                            "parameters": {
+                                "pythonFile": "Silent S-57 ENC pseudo export.py"
+                            }
+                        }, 
+                        {
+                            "definition": {
+                                "base": {
+                                    "identification": {
+                                        "id": "Branch", 
+                                        "title": "Branch", 
+                                        "version": "2.0.0"
+                                    }
+                                }
+                            }, 
+                            "identification": {
+                                "id": "54a354fe-2891-47f4-91f0-0365cabf1fef", 
+                                "version": "2.0.0"
+                            }
+                        }, 
+                        {
+                            "definition": {
+                                "base": {
+                                    "identification": {
+                                        "id": "OutputMessage", 
+                                        "title": "Output Message", 
+                                        "version": "2.0.0"
+                                    }
+                                }
+                            }, 
+                            "identification": {
+                                "id": "1fb9da37-6c6f-4882-84d3-e17baa732871", 
+                                "version": "2.0.0"
+                            }
+                        }, 
+                        {
+                            "definition": {
+                                "base": {
+                                    "identification": {
+                                        "id": "PythonProcess", 
+                                        "title": "Python Process", 
+                                        "version": "2.0.0"
+                                    }
+                                }, 
+                                "parameters": {
+                                    "inputs": ["exported_file"], 
+                                    "outputs": ["message"], 
+                                    "schema": {
+                                        "properties": {
+                                            "exported_file": {
+                                                "title": "Exported File", 
+                                                "type": "string"
+                                            }, 
+                                            "message": {
+                                                "title": "File Size", 
+                                                "type": "string"
+                                            }
+                                        }, 
+                                        "required": ["exported_file"], 
+                                        "type": "object"
+                                    }
+                                }, 
+                                "presentations": [
+                                    {
+                                        "identification": {
+                                            "id": "Model", 
+                                            "version": "2.0.0"
+                                        }, 
+                                        "properties": {
+                                            "Category": "ENC Tools", 
+                                            "Helper": true
+                                        }
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "Process", 
+                                            "version": "2.0.0"
+                                        }, 
+                                        "widgets": [
+                                            {
+                                                "identification": {
+                                                    "id": "export_path"
+                                                }, 
+                                                "properties": {
+                                                    "optional": false, 
+                                                    "path": "export_path"
+                                                }, 
+                                                "type": "Text"
+                                            }, 
+                                            {
+                                                "identification": {
+                                                    "id": "error_message"
+                                                }, 
+                                                "properties": {
+                                                    "optional": false, 
+                                                    "path": "error_message"
+                                                }, 
+                                                "type": "Text"
+                                            }, 
+                                            {
+                                                "identification": {
+                                                    "id": "message"
+                                                }, 
+                                                "properties": {
+                                                    "optional": true, 
+                                                    "path": "message"
+                                                }, 
+                                                "type": "Text"
+                                            }, 
+                                            {
+                                                "identification": {
+                                                    "id": "exported_file"
+                                                }, 
+                                                "properties": {
+                                                    "optional": false, 
+                                                    "path": "exported_file"
+                                                }, 
+                                                "type": "Text"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, 
+                            "identification": {
+                                "description": "Calculates the size of the pseudo export and deletes it", 
+                                "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a", 
+                                "title": "Calculate S-57 ENC file size and Delete"
+                            }, 
+                            "parameters": {
+                                "pythonFile": "Calculate S-57 ENC file size and Delete.py"
+                            }
+                        }, 
+                        {
+                            "definition": {
+                                "base": {
+                                    "identification": {
+                                        "id": "OutputMessage", 
+                                        "title": "Output Message", 
+                                        "version": "2.0.0"
+                                    }
+                                }
+                            }, 
+                            "identification": {
+                                "id": "607011ed-2b7b-4e43-b77e-06aa5fd93f44", 
+                                "version": "2.0.0"
+                            }
+                        }
+                    ], 
+                    "terminals": [
+                        {
+                            "id": "14637373-4195-40f0-9dbe-5d6efedef58c"
+                        }, 
+                        {
+                            "id": "5b78c0b6-e27e-430b-a7e5-e45759fb5e38"
+                        }, 
+                        {
+                            "id": "5c5b647f-8165-47a3-a16b-5d7afd47fb58"
+                        }
+                    ]
+                }, 
+                "parameters": {
+                    "inputs": ["14637373-4195-40f0-9dbe-5d6efedef58c", "5b78c0b6-e27e-430b-a7e5-e45759fb5e38", "5c5b647f-8165-47a3-a16b-5d7afd47fb58"], 
+                    "schema": {
+                        "properties": {
+                            "14637373-4195-40f0-9dbe-5d6efedef58c": {
+                                "default": 1, 
+                                "description": "The ID of the project to include in the URI.", 
+                                "title": "Project Id", 
+                                "type": "integer"
+                            }, 
+                            "5b78c0b6-e27e-430b-a7e5-e45759fb5e38": {
+                                "default": 5003, 
+                                "description": "The ID of the vector or tiled raster product to include in the URI.", 
+                                "title": "Product Id", 
+                                "type": "integer"
+                            }, 
+                            "5c5b647f-8165-47a3-a16b-5d7afd47fb58": {
+                                "description": "A URI containing the credentials to connect to HPD.", 
+                                "title": "Credentials", 
+                                "type": "uri"
+                            }
+                        }, 
+                        "required": ["5c5b647f-8165-47a3-a16b-5d7afd47fb58"], 
+                        "type": "object"
+                    }
+                }, 
+                "presentations": [
+                    {
+                        "identification": {
+                            "id": "Model", 
+                            "version": "2.0.0"
+                        }, 
+                        "properties": {
+                            "Category": "ENC Production"
+                        }, 
+                        "widgets": [
+                            {
+                                "identification": {
+                                    "id": "5c5b647f-8165-47a3-a16b-5d7afd47fb58"
+                                }, 
+                                "properties": {
+                                    "width": 157.0, 
+                                    "x": -880, 
+                                    "y": -128, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Parameter"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "5b78c0b6-e27e-430b-a7e5-e45759fb5e38"
+                                }, 
+                                "properties": {
+                                    "width": 157.0, 
+                                    "x": -880, 
+                                    "y": -96, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Parameter"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "14637373-4195-40f0-9dbe-5d6efedef58c"
+                                }, 
+                                "properties": {
+                                    "width": 157.0, 
+                                    "x": -880, 
+                                    "y": -64, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Parameter"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "1df5a856-35b3-45d7-a376-77895e08bf46"
+                                }, 
+                                "properties": {
+                                    "width": 256.0, 
+                                    "x": -448, 
+                                    "y": -144, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Process", 
+                                "widgets": [
+                                    {
+                                        "identification": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "properties": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "error"
+                                        }, 
+                                        "properties": {
+                                            "id": "error"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "error_message"
+                                        }, 
+                                        "properties": {
+                                            "id": "error_message"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "exported_file"
+                                        }, 
+                                        "properties": {
+                                            "id": "exported_file"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "hpd_uri"
+                                        }, 
+                                        "properties": {
+                                            "id": "hpd_uri"
+                                        }, 
+                                        "type": "Port"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a"
+                                }, 
+                                "properties": {
+                                    "width": 256.0, 
+                                    "x": -160, 
+                                    "y": -64, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Process", 
+                                "widgets": [
+                                    {
+                                        "identification": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "properties": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "message"
+                                        }, 
+                                        "properties": {
+                                            "id": "message"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "exported_file"
+                                        }, 
+                                        "properties": {
+                                            "id": "exported_file"
+                                        }, 
+                                        "type": "Port"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "f4163404-bb53-4e4a-a73d-f88894c8c4cc"
+                                }, 
+                                "properties": {
+                                    "width": 224.0, 
+                                    "x": -704, 
+                                    "y": -160, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Process", 
+                                "widgets": [
+                                    {
+                                        "identification": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "properties": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "Outputs"
+                                        }, 
+                                        "properties": {
+                                            "id": "Outputs"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "Credentials"
+                                        }, 
+                                        "properties": {
+                                            "id": "Credentials"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "ProductId"
+                                        }, 
+                                        "properties": {
+                                            "id": "ProductId"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "ProjectId"
+                                        }, 
+                                        "properties": {
+                                            "id": "ProjectId"
+                                        }, 
+                                        "type": "Port"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "607011ed-2b7b-4e43-b77e-06aa5fd93f44"
+                                }, 
+                                "properties": {
+                                    "width": 208.0, 
+                                    "x": 128, 
+                                    "y": -64, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Process", 
+                                "widgets": [
+                                    {
+                                        "identification": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "properties": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "Message"
+                                        }, 
+                                        "properties": {
+                                            "id": "Message"
+                                        }, 
+                                        "type": "Port"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "54a354fe-2891-47f4-91f0-0365cabf1fef"
+                                }, 
+                                "properties": {
+                                    "width": 208.0, 
+                                    "x": -160, 
+                                    "y": -208, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Process", 
+                                "widgets": [
+                                    {
+                                        "identification": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "properties": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "False"
+                                        }, 
+                                        "properties": {
+                                            "id": "False"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "True"
+                                        }, 
+                                        "properties": {
+                                            "id": "True"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "Condition"
+                                        }, 
+                                        "properties": {
+                                            "id": "Condition"
+                                        }, 
+                                        "type": "Port"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "1fb9da37-6c6f-4882-84d3-e17baa732871"
+                                }, 
+                                "properties": {
+                                    "width": 208.0, 
+                                    "x": 128, 
+                                    "y": -176, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Process", 
+                                "widgets": [
+                                    {
+                                        "identification": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "properties": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "Message"
+                                        }, 
+                                        "properties": {
+                                            "id": "Message"
+                                        }, 
+                                        "type": "Port"
+                                    }
+                                ]
+                            }
+                        ]
+                    }, 
+                    {
+                        "identification": {
+                            "id": "Process", 
+                            "version": "2.0.0"
+                        }, 
+                        "widgets": [
+                            {
+                                "identification": {
+                                    "id": "5c5b647f-8165-47a3-a16b-5d7afd47fb58"
+                                }, 
+                                "properties": {
+                                    "optional": false, 
+                                    "path": "5c5b647f-8165-47a3-a16b-5d7afd47fb58"
+                                }, 
+                                "type": "HPDLoginControl"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "5b78c0b6-e27e-430b-a7e5-e45759fb5e38"
+                                }, 
+                                "properties": {
+                                    "optional": true, 
+                                    "path": "5b78c0b6-e27e-430b-a7e5-e45759fb5e38"
+                                }, 
+                                "type": "HPDProductControl"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "14637373-4195-40f0-9dbe-5d6efedef58c"
+                                }, 
+                                "properties": {
+                                    "optional": true, 
+                                    "path": "14637373-4195-40f0-9dbe-5d6efedef58c"
+                                }, 
+                                "type": "HPDProjectControl"
+                            }
+                        ]
+                    }
+                ]
+            }, 
+            "identification": {
+                "description": "Reports the size of an S-57 ENC file (either base cell or update)", 
+                "id": "fec7e7f0-7333-4197-954b-8d2b4bef2d14", 
+                "title": "Report S-57 ENC file size", 
+                "version": "2.0.0"
+            }
+        }
+    ]
+}

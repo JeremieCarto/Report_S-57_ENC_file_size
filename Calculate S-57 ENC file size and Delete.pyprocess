@@ -1,0 +1,104 @@
+{
+    "identification": {
+        "version": "2.0.0"
+    }, 
+    "processes": [
+        {
+            "definition": {
+                "base": {
+                    "identification": {
+                        "id": "PythonProcess", 
+                        "title": "Python Process", 
+                        "version": "2.0.0"
+                    }
+                }, 
+                "parameters": {
+                    "inputs": ["exported_file"], 
+                    "outputs": ["message"], 
+                    "schema": {
+                        "properties": {
+                            "exported_file": {
+                                "title": "Exported File", 
+                                "type": "string"
+                            }, 
+                            "message": {
+                                "title": "File Size", 
+                                "type": "string"
+                            }
+                        }, 
+                        "required": ["exported_file"], 
+                        "type": "object"
+                    }
+                }, 
+                "presentations": [
+                    {
+                        "identification": {
+                            "id": "Model", 
+                            "version": "2.0.0"
+                        }, 
+                        "properties": {
+                            "Category": "ENC Tools", 
+                            "Helper": true
+                        }
+                    }, 
+                    {
+                        "identification": {
+                            "id": "Process", 
+                            "version": "2.0.0"
+                        }, 
+                        "widgets": [
+                            {
+                                "identification": {
+                                    "id": "export_path"
+                                }, 
+                                "properties": {
+                                    "optional": false, 
+                                    "path": "export_path"
+                                }, 
+                                "type": "Text"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "error_message"
+                                }, 
+                                "properties": {
+                                    "optional": false, 
+                                    "path": "error_message"
+                                }, 
+                                "type": "Text"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "message"
+                                }, 
+                                "properties": {
+                                    "optional": true, 
+                                    "path": "message"
+                                }, 
+                                "type": "Text"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "exported_file"
+                                }, 
+                                "properties": {
+                                    "optional": false, 
+                                    "path": "exported_file"
+                                }, 
+                                "type": "Text"
+                            }
+                        ]
+                    }
+                ]
+            }, 
+            "identification": {
+                "description": "Calculates the size of the pseudo export and deletes it", 
+                "id": "9b36fb6b-a0d6-4305-86b1-c7dc66ad51b9", 
+                "title": "Calculate S-57 ENC file size and Delete"
+            }, 
+            "parameters": {
+                "pythonFile": "Calculate S-57 ENC file size and Delete.py"
+            }
+        }
+    ]
+}

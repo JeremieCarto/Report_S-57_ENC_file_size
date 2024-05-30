@@ -1,0 +1,122 @@
+{
+    "identification": {
+        "version": "2.0.0"
+    }, 
+    "processes": [
+        {
+            "definition": {
+                "base": {
+                    "identification": {
+                        "id": "PythonProcess", 
+                        "title": "Python Process", 
+                        "version": "2.0.0"
+                    }
+                }, 
+                "parameters": {
+                    "inputs": ["hpd_uri"], 
+                    "outputs": ["error", "error_message", "exported_file"], 
+                    "schema": {
+                        "properties": {
+                            "error": {
+                                "title": "Error", 
+                                "type": "boolean"
+                            }, 
+                            "error_message": {
+                                "title": "Error Message", 
+                                "type": "string"
+                            }, 
+                            "exported_file": {
+                                "title": "Exported File", 
+                                "type": "string"
+                            }, 
+                            "hpd_uri": {
+                                "title": "HPD URI", 
+                                "type": "uri"
+                            }
+                        }, 
+                        "required": ["hpd_uri"], 
+                        "type": "object"
+                    }
+                }, 
+                "presentations": [
+                    {
+                        "identification": {
+                            "id": "Model", 
+                            "version": "2.0.0"
+                        }, 
+                        "properties": {
+                            "Category": "ENC Tools", 
+                            "Helper": true
+                        }
+                    }, 
+                    {
+                        "identification": {
+                            "id": "Process", 
+                            "version": "2.0.0"
+                        }, 
+                        "widgets": [
+                            {
+                                "identification": {
+                                    "id": "export_path"
+                                }, 
+                                "properties": {
+                                    "optional": true, 
+                                    "path": "export_path"
+                                }, 
+                                "type": "Text"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "error_message"
+                                }, 
+                                "properties": {
+                                    "optional": true, 
+                                    "path": "error_message"
+                                }, 
+                                "type": "Text"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "exported_file"
+                                }, 
+                                "properties": {
+                                    "optional": true, 
+                                    "path": "exported_file"
+                                }, 
+                                "type": "Text"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "error"
+                                }, 
+                                "properties": {
+                                    "optional": true, 
+                                    "path": "error"
+                                }, 
+                                "type": "Check"
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "hpd_uri"
+                                }, 
+                                "properties": {
+                                    "optional": false, 
+                                    "path": "hpd_uri"
+                                }, 
+                                "type": "Uri"
+                            }
+                        ]
+                    }
+                ]
+            }, 
+            "identification": {
+                "description": "Runs carisbatch in the background to do a pseudo export", 
+                "id": "6fb8f2d6-b3c4-4398-a272-c7e026bf2ef8", 
+                "title": "Silent S-57 ENC pseudo export"
+            }, 
+            "parameters": {
+                "pythonFile": "Silent S-57 ENC pseudo export.py"
+            }
+        }
+    ]
+}
