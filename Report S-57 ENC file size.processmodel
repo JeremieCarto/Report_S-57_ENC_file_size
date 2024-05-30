@@ -42,6 +42,46 @@
                         }, 
                         {
                             "incoming": {
+                                "id": "1df5a856-35b3-45d7-a376-77895e08bf46", 
+                                "parameter": "hpd_uri"
+                            }, 
+                            "outgoing": {
+                                "id": "f4163404-bb53-4e4a-a73d-f88894c8c4cc", 
+                                "parameter": "Outputs"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "607011ed-2b7b-4e43-b77e-06aa5fd93f44", 
+                                "parameter": "Message"
+                            }, 
+                            "outgoing": {
+                                "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a", 
+                                "parameter": "message"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "1fb9da37-6c6f-4882-84d3-e17baa732871", 
+                                "parameter": "Precondition"
+                            }, 
+                            "outgoing": {
+                                "id": "54a354fe-2891-47f4-91f0-0365cabf1fef", 
+                                "parameter": "True"
+                            }
+                        }, 
+                        {
+                            "incoming": {
+                                "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a", 
+                                "parameter": "Precondition"
+                            }, 
+                            "outgoing": {
+                                "id": "54a354fe-2891-47f4-91f0-0365cabf1fef", 
+                                "parameter": "False"
+                            }
+                        }, 
+                        {
+                            "incoming": {
                                 "id": "54a354fe-2891-47f4-91f0-0365cabf1fef", 
                                 "parameter": "Condition"
                             }, 
@@ -68,46 +108,6 @@
                             "outgoing": {
                                 "id": "1df5a856-35b3-45d7-a376-77895e08bf46", 
                                 "parameter": "error_message"
-                            }
-                        }, 
-                        {
-                            "incoming": {
-                                "id": "607011ed-2b7b-4e43-b77e-06aa5fd93f44", 
-                                "parameter": "Message"
-                            }, 
-                            "outgoing": {
-                                "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a", 
-                                "parameter": "message"
-                            }
-                        }, 
-                        {
-                            "incoming": {
-                                "id": "1df5a856-35b3-45d7-a376-77895e08bf46", 
-                                "parameter": "hpd_uri"
-                            }, 
-                            "outgoing": {
-                                "id": "f4163404-bb53-4e4a-a73d-f88894c8c4cc", 
-                                "parameter": "Outputs"
-                            }
-                        }, 
-                        {
-                            "incoming": {
-                                "id": "1fb9da37-6c6f-4882-84d3-e17baa732871", 
-                                "parameter": "Precondition"
-                            }, 
-                            "outgoing": {
-                                "id": "54a354fe-2891-47f4-91f0-0365cabf1fef", 
-                                "parameter": "True"
-                            }
-                        }, 
-                        {
-                            "incoming": {
-                                "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a", 
-                                "parameter": "Precondition"
-                            }, 
-                            "outgoing": {
-                                "id": "54a354fe-2891-47f4-91f0-0365cabf1fef", 
-                                "parameter": "False"
                             }
                         }
                     ], 
@@ -264,21 +264,6 @@
                             "definition": {
                                 "base": {
                                     "identification": {
-                                        "id": "OutputMessage", 
-                                        "title": "Output Message", 
-                                        "version": "2.0.0"
-                                    }
-                                }
-                            }, 
-                            "identification": {
-                                "id": "1fb9da37-6c6f-4882-84d3-e17baa732871", 
-                                "version": "2.0.0"
-                            }
-                        }, 
-                        {
-                            "definition": {
-                                "base": {
-                                    "identification": {
                                         "id": "PythonProcess", 
                                         "title": "Python Process", 
                                         "version": "2.0.0"
@@ -383,6 +368,21 @@
                                 }
                             }, 
                             "identification": {
+                                "id": "1fb9da37-6c6f-4882-84d3-e17baa732871", 
+                                "version": "2.0.0"
+                            }
+                        }, 
+                        {
+                            "definition": {
+                                "base": {
+                                    "identification": {
+                                        "id": "OutputMessage", 
+                                        "title": "Output Message", 
+                                        "version": "2.0.0"
+                                    }
+                                }
+                            }, 
+                            "identification": {
                                 "id": "607011ed-2b7b-4e43-b77e-06aa5fd93f44", 
                                 "version": "2.0.0"
                             }
@@ -474,106 +474,6 @@
                             }, 
                             {
                                 "identification": {
-                                    "id": "1df5a856-35b3-45d7-a376-77895e08bf46"
-                                }, 
-                                "properties": {
-                                    "width": 256.0, 
-                                    "x": -448, 
-                                    "y": -144, 
-                                    "z": 0.0
-                                }, 
-                                "type": "Process", 
-                                "widgets": [
-                                    {
-                                        "identification": {
-                                            "id": "Precondition"
-                                        }, 
-                                        "properties": {
-                                            "id": "Precondition"
-                                        }, 
-                                        "type": "Port"
-                                    }, 
-                                    {
-                                        "identification": {
-                                            "id": "error"
-                                        }, 
-                                        "properties": {
-                                            "id": "error"
-                                        }, 
-                                        "type": "Port"
-                                    }, 
-                                    {
-                                        "identification": {
-                                            "id": "error_message"
-                                        }, 
-                                        "properties": {
-                                            "id": "error_message"
-                                        }, 
-                                        "type": "Port"
-                                    }, 
-                                    {
-                                        "identification": {
-                                            "id": "exported_file"
-                                        }, 
-                                        "properties": {
-                                            "id": "exported_file"
-                                        }, 
-                                        "type": "Port"
-                                    }, 
-                                    {
-                                        "identification": {
-                                            "id": "hpd_uri"
-                                        }, 
-                                        "properties": {
-                                            "id": "hpd_uri"
-                                        }, 
-                                        "type": "Port"
-                                    }
-                                ]
-                            }, 
-                            {
-                                "identification": {
-                                    "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a"
-                                }, 
-                                "properties": {
-                                    "width": 256.0, 
-                                    "x": -160, 
-                                    "y": -64, 
-                                    "z": 0.0
-                                }, 
-                                "type": "Process", 
-                                "widgets": [
-                                    {
-                                        "identification": {
-                                            "id": "Precondition"
-                                        }, 
-                                        "properties": {
-                                            "id": "Precondition"
-                                        }, 
-                                        "type": "Port"
-                                    }, 
-                                    {
-                                        "identification": {
-                                            "id": "message"
-                                        }, 
-                                        "properties": {
-                                            "id": "message"
-                                        }, 
-                                        "type": "Port"
-                                    }, 
-                                    {
-                                        "identification": {
-                                            "id": "exported_file"
-                                        }, 
-                                        "properties": {
-                                            "id": "exported_file"
-                                        }, 
-                                        "type": "Port"
-                                    }
-                                ]
-                            }, 
-                            {
-                                "identification": {
                                     "id": "f4163404-bb53-4e4a-a73d-f88894c8c4cc"
                                 }, 
                                 "properties": {
@@ -633,11 +533,52 @@
                             }, 
                             {
                                 "identification": {
+                                    "id": "94fa7ced-60dc-4b1f-bc72-03fa62b7906a"
+                                }, 
+                                "properties": {
+                                    "width": 272.0, 
+                                    "x": -160, 
+                                    "y": -64, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Process", 
+                                "widgets": [
+                                    {
+                                        "identification": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "properties": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "message"
+                                        }, 
+                                        "properties": {
+                                            "id": "message"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "exported_file"
+                                        }, 
+                                        "properties": {
+                                            "id": "exported_file"
+                                        }, 
+                                        "type": "Port"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "identification": {
                                     "id": "607011ed-2b7b-4e43-b77e-06aa5fd93f44"
                                 }, 
                                 "properties": {
                                     "width": 208.0, 
-                                    "x": 128, 
+                                    "x": 144, 
                                     "y": -64, 
                                     "z": 0.0
                                 }, 
@@ -719,7 +660,7 @@
                                 }, 
                                 "properties": {
                                     "width": 208.0, 
-                                    "x": 128, 
+                                    "x": 144, 
                                     "y": -176, 
                                     "z": 0.0
                                 }, 
@@ -740,6 +681,65 @@
                                         }, 
                                         "properties": {
                                             "id": "Message"
+                                        }, 
+                                        "type": "Port"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "identification": {
+                                    "id": "1df5a856-35b3-45d7-a376-77895e08bf46"
+                                }, 
+                                "properties": {
+                                    "width": 256.0, 
+                                    "x": -448, 
+                                    "y": -144, 
+                                    "z": 0.0
+                                }, 
+                                "type": "Process", 
+                                "widgets": [
+                                    {
+                                        "identification": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "properties": {
+                                            "id": "Precondition"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "error"
+                                        }, 
+                                        "properties": {
+                                            "id": "error"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "error_message"
+                                        }, 
+                                        "properties": {
+                                            "id": "error_message"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "exported_file"
+                                        }, 
+                                        "properties": {
+                                            "id": "exported_file"
+                                        }, 
+                                        "type": "Port"
+                                    }, 
+                                    {
+                                        "identification": {
+                                            "id": "hpd_uri"
+                                        }, 
+                                        "properties": {
+                                            "id": "hpd_uri"
                                         }, 
                                         "type": "Port"
                                     }
@@ -789,7 +789,7 @@
             }, 
             "identification": {
                 "description": "Reports the size of an S-57 ENC file (either base cell or update)", 
-                "id": "fec7e7f0-7333-4197-954b-8d2b4bef2d14", 
+                "id": "8c2aa577-8b54-41ee-8ed8-294d96365f4f", 
                 "title": "Report S-57 ENC file size", 
                 "version": "2.0.0"
             }
